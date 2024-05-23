@@ -18,5 +18,27 @@
         android:id="@+id/petSearchFragment"
         android:name="com.example.wauwau.ui.PetSearchFragment"
         android:label="fragment_pet_search"
-        tools:layout="@layout/fragment_pet_search" />
+        tools:layout="@layout/fragment_pet_search" >
+        <action
+            android:id="@+id/action_petSearchFragment_to_dogProfileFragment"
+            app:destination="@id/dogProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dogProfileFragment"
+        android:name="com.example.wauwau.ui.DogProfileFragment"
+        android:label="fragment_dog_profile"
+        tools:layout="@layout/fragment_dog_profile" >
+        <action
+            android:id="@+id/action_dogProfileFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.wauwau.ui.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <argument
+            android:name="nameTV"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -5,12 +5,110 @@
     android:layout_height="match_parent"
     tools:context=".ui.MessageFragment">
 
-    <!-- TODO: Update blank fragment layout -->  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="INBOX"
-    android:gravity="center"
-    android:textSize="40dp"
-    android:background="#FFEB3B"/>
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADOPTION FORM"
+            android:gravity="center"
+            android:textSize="40dp"
+            android:textColor="@color/black"
+            android:background="#FFEB3B"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name of the dog"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:background="#FFEB3B"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NAME:"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:background="#FFEB3B"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/nameET"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="ADDRESS"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:background="#FFEB3B"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/addressET"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="WHY ARE YOU INTERESTED IN THIS DOG"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:background="#FFEB3B"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/whyET"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DO YOU OWN A GARDEN?"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:background="#FFEB3B"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/gardenET"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DO YOU HAVE CHILDREN?"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:background="#FFEB3B"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/childrenET"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="DO YOU HAVE OTHER ANIMALS(if so what animals)?"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:background="#FFEB3B"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/otherAnimalsET"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send"
+            android:layout_gravity="center"
+            android:id="@+id/sendFormBTN"/>
+    </LinearLayout>
 
 </FrameLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.DogProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/doggo"
+            android:id="@+id/dogPhotoIV"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/nameTV"
+            android:layout_height="wrap_content"
+            android:text="NAME"
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/dogGenderTV"
+            android:layout_height="wrap_content"
+            android:text="gender"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/dogAgeTV"
+            android:layout_height="wrap_content"
+            android:text="age"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/dogDescriptionTV"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:text="add to fav"
+                android:id="@+id/favAddBTN"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:text="Message"
+                android:id="@+id/writeMessageBTN"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:text="Share"
+                android:id="@+id/shareProfileBTN"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

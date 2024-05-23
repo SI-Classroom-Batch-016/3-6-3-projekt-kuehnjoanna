@@ -7,7 +7,8 @@ import com.example.wauwau.data.Pet
 import com.example.wauwau.databinding.PetItemBinding
 
 class PetAdapter(
-        val dataset: List<Pet>
+        val dataset: List<Pet>,
+        val itemClickedCallback: (Pet) -> Unit,
 ): RecyclerView.Adapter<PetAdapter.ItemViewHolder>() {
         inner class ItemViewHolder(val binding: PetItemBinding): ViewHolder(binding.root)
 
@@ -24,5 +25,10 @@ class PetAdapter(
         override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
                 val data = dataset[position]
                 val binding = holder.binding
+                binding.dogNameTV.text = data.name
+                binding.dogPhotoIV.setImageResource(data.picture)
+                binding.dogPhotoIV.setOnClickListener {
+                        itemClickedCallback(data)
+                }
         }
 }
