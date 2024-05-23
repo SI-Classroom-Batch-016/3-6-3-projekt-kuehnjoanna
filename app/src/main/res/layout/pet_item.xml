@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#3F51B5"
+    app:cardUseCompatPadding="true"
+    android:layout_margin="10dp"
+    android:layout_weight="1"
+    app:cardCornerRadius="20dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:elevation="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/dogNameTV"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_below="@+id/dogPhotoIV"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/dogPhotoIV"
+            android:textStyle="bold"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="Scores"
+            android:src="@drawable/doggo"
+            android:id="@+id/dogPhotoIV"
+            android:textColor="@color/black"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dogNameTV"
+            android:textSize="30dp"
+            android:textStyle="italic"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+
+
+

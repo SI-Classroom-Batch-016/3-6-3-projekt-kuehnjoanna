@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.wauwau.HomeFragment"
+        android:name="com.example.wauwau.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/petSearchFragment"
-        android:name="com.example.wauwau.PetSearchFragment"
+        android:name="com.example.wauwau.ui.PetSearchFragment"
         android:label="fragment_pet_search"
         tools:layout="@layout/fragment_pet_search" />
 </navigation>

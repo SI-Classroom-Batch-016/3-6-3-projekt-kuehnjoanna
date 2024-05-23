@@ -4,14 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment">
+    tools:context=".ui.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:text="HOME"
         android:id="@+id/infoBox"
         android:gravity="center"
-        android:text="here will be homepage of an app, click on it to be moved to next page" />
+        android:textSize="40dp"
+        android:background="#3F51B5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

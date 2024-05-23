@@ -50,5 +50,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    implementation("com.github.qamarelsafadi:CurvedBottomNavigation:0.1.3")
+
     androidTestImplementation(libs.androidx.espresso.core)
 }
