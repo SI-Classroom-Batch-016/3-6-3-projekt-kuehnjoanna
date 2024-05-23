@@ -2,25 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottomHome"
+        android:id="@+id/homeFragment"
         android:title="Home"
         android:icon="@drawable/home"/>
+
     <item
-        android:id="@+id/bottomProfile"
-        android:title="Profile"
-        android:icon="@drawable/person"/>
+        android:id="@+id/inboxFragment"
+        android:title="Inbox"
+        android:icon="@drawable/inbox"/>
+
     <item
         android:title=""
         android:enabled="true"/>
     <item
-        android:id="@+id/favorites"
+        android:id="@+id/favoritesFragment2"
         android:title="Favorites"
         android:icon="@drawable/favorites"/>
 
     <item
-        android:id="@+id/inbox"
-        android:title="Inbox"
-        android:icon="@drawable/inbox"/>
+        android:id="@+id/profilFragment2"
+        android:title="Profile"
+        android:icon="@drawable/person"/>
 
 
 </menu>

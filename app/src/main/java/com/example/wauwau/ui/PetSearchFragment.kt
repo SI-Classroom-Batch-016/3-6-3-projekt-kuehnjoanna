@@ -35,7 +35,7 @@ private val viewModel: WauWauViewModel by activityViewModels()
         val data = Datasource.data
 
         val itemClickedCallback: (Pet) -> Unit  = {
-            viewModel.selectedItem(it)
+            viewModel.selectedPetItem(it)
 
             findNavController().navigate(PetSearchFragmentDirections.actionPetSearchFragmentToDogProfileFragment())
         }

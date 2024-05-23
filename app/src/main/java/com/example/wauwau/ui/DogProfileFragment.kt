@@ -34,7 +34,7 @@ class DogProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
             val nameTV = binding.nameTV.text.toString()
-        viewModel.selectedItem.observe(viewLifecycleOwner){
+        viewModel.selectedPetItem.observe(viewLifecycleOwner){
             binding.dogPhotoIV.setImageResource(it.picture)
             binding.dogAgeTV.text = it.age.toString()
             binding.dogGenderTV.text = it.gender

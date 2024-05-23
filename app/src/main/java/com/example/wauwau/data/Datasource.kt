@@ -20,4 +20,12 @@ object Datasource {
         Pet("Rex", 2, R.drawable.doggo, "Some description", "m"),
         Pet("Max", 2, R.drawable.doggo, "Some description", "m"),
     )
+
+    val messages: List<Message> = listOf(
+        Message("Some message", "Text of some message"),
+
+        Message("Some message2", "Text of some message2"),
+        Message("Some message3", "Text of some message23"),
+        Message("Some message24", "Text of some message24"),
+    )
 }

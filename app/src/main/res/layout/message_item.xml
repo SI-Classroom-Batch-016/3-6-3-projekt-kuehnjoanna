@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:id="@+id/messageITEM"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="60dp"
+            android:text="INBOX"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/messageTitleTV"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:text="someTitle"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:id="@+id/messageBodyTV"
+        android:text="Some Body"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

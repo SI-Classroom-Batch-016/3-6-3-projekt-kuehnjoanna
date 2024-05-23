@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_petSearchFragment"
             app:destination="@id/petSearchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
     </fragment>
     <fragment
         android:id="@+id/petSearchFragment"
@@ -41,4 +44,24 @@
             android:name="nameTV"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment2"
+        android:name="com.example.wauwau.ui.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/profilFragment2"
+        android:name="com.example.wauwau.ui.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/inboxFragment"
+        android:name="com.example.wauwau.ui.InboxFragment"
+        android:label="fragment_inbox"
+        tools:layout="@layout/fragment_inbox" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.wauwau.ui.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>
