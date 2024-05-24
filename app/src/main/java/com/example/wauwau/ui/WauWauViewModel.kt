@@ -1,5 +1,6 @@
 package com.example.wauwau.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,17 +11,22 @@ import com.example.wauwau.data.Pet
 class WauWauViewModel: ViewModel() {
 
     val allPets: List<Pet> = Datasource.data
-    val allMessages: List<Message> = Datasource.messages
+    var allMessages: MutableList<Message> = Datasource.messages.toMutableList()
+    val allFavProfiles: MutableList<Pet> = Datasource.favorites.toMutableList()
 
     private val _pets = MutableLiveData<List<Pet>>(allPets)
     private val _messages = MutableLiveData<List<Message>>(allMessages)
+    private val _favorites = MutableLiveData<List<Pet>>(allFavProfiles)
     val pets: LiveData<List<Pet>>
         get() = _pets
     val messages: LiveData<List<Message>>
         get() = _messages
 
+    val favorites: LiveData<List<Pet>>
+        get() = _favorites
     val selectedPetItem = MutableLiveData<Pet>()
     val selectedMessageItem = MutableLiveData<Message>()
+
 
 
     fun selectedPetItem(it: Pet){
@@ -28,5 +34,35 @@ class WauWauViewModel: ViewModel() {
     }
     fun selectedMessageItem(it: Message){
         selectedMessageItem.value = it
+    }
+    fun addPetToFav(){
+        allFavProfiles.add(selectedPetItem.value!!)
+    }
+    fun removePetFromFav(){
+        allFavProfiles.remove(selectedPetItem.value!!)
+    }
+    fun addMessageToInbox(message: Message){
+        allMessages.add(message)
+        Log.d("messages", "$allMessages")
+    }
+
+    fun filterPets(gender: String){
+       val newList = allPets.filter {
+            it.gender.equals(gender)
+        }
+         _pets.value = newList
+    }
+    fun filterPetsAge(range: IntRange){
+        var newerList = mutableListOf<Pet>()
+        for (number in range.toList()) {
+            allPets.filter {
+                it.age.equals(number)
+                newerList.add(it)
+            }
+            _pets.value = newerList
+        }
+    }
+    fun resetFilter(){
+        _pets.value = allPets
     }
 }

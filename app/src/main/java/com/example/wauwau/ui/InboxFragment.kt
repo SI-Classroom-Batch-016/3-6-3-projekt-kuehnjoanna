@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.wauwau.R
@@ -19,8 +20,8 @@ import com.example.wauwau.databinding.MessageItemBinding
 
 
 class InboxFragment : Fragment() {
-private lateinit var binding: FragmentInboxBinding
-private val viewModel: WauWauViewModel by activityViewModels()
+    private lateinit var binding: FragmentInboxBinding
+    private val viewModel: WauWauViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,8 @@ private val viewModel: WauWauViewModel by activityViewModels()
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-binding  = FragmentInboxBinding.inflate(layoutInflater)
-    return binding.root
+        binding = FragmentInboxBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,13 +41,13 @@ binding  = FragmentInboxBinding.inflate(layoutInflater)
 
 
         val data = Datasource.messages
-
-        val itemClickedCallback: (Message) -> Unit  = {
+        val itemClickedCallback: (Message) -> Unit = {
             viewModel.selectedMessageItem(it)
 
-            findNavController().navigate(R.id.messageFragment)
         }
-        val adapter = MessageAdapter(data, itemClickedCallback)
-        binding.inboxRV.adapter = adapter
+        val adapter2 = MessageAdapter( viewModel.messages.value!!, itemClickedCallback)
+        binding.inboxRV.adapter = adapter2
+
+
     }
 }

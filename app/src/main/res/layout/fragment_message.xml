@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="name of the dog"
             android:textStyle="bold"
+            android:id="@+id/nameOfTheDogTV"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="30dp"

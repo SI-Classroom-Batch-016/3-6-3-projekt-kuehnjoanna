@@ -39,8 +39,43 @@ private val viewModel: WauWauViewModel by activityViewModels()
 
             findNavController().navigate(PetSearchFragmentDirections.actionPetSearchFragmentToDogProfileFragment())
         }
-        val adapter = PetAdapter(data, itemClickedCallback)
-        binding.petsRV.adapter = adapter
+
+        viewModel.pets.observe(viewLifecycleOwner) {
+            val adapter = PetAdapter(viewModel.pets.value!!, itemClickedCallback)
+            binding.petsRV.adapter = adapter
+
+            binding.maleSearch.setOnClickListener {
+                viewModel.filterPets("m")
+                binding.maleSearch.setOnClickListener {
+                    binding.maleSearch.isChecked = false
+                    viewModel.resetFilter()
+                }
+
+            }
+
+            binding.femaleSearch.setOnClickListener {
+                viewModel.filterPets("f")
+                binding.femaleSearch.setOnClickListener {
+                    binding.femaleSearch.isChecked = false
+                    viewModel.resetFilter()
+                }
+            }
+
+            binding.puppySearch.setOnClickListener {
+                viewModel.filterPetsAge(1..2)
+                binding.puppySearch.setOnClickListener{
+                    binding.puppySearch.isChecked = false
+                    viewModel.resetFilter()
+                }
+            }
+            binding.adultSearch.setOnClickListener {
+                viewModel.filterPetsAge(2..7)
+                binding.puppySearch.setOnClickListener{
+                    binding.puppySearch.isChecked = false
+                    viewModel.resetFilter()
+                }
+            }
+        }
     }
 
 }

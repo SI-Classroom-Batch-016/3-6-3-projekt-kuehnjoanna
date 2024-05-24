@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.wauwau.R
+import com.example.wauwau.data.Message
 import com.example.wauwau.databinding.FragmentDogProfileBinding
 import com.example.wauwau.databinding.FragmentMessageBinding
 
 class MessageFragment : Fragment() {
     private lateinit var binding: FragmentMessageBinding
     val args: MessageFragmentArgs by navArgs()
+    private val viewModel: WauWauViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +35,21 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.nameOfTheDogTV.text = args.nameTV
+        val yourName = binding.nameET.text.toString()
+
+        val content = "Form sent:\n name of the dog: ${args.nameTV} \n Your name: ${yourName}\n Adress: ${binding.addressET.text.toString()}\n Why are you interested in this dog?: ${binding.whyET.editableText.toString()}\n Garden?: ${binding.gardenET.text}\n Children?: ${binding.childrenET.text} \n Other animals?: ${binding.otherAnimalsET.text}"
         binding.sendFormBTN.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Bitte Bestätigen")
 
             builder.setPositiveButton("Ja") { _, _ ->
                 Toast.makeText(context, "Form sent, you can find it in your Inbox", Toast.LENGTH_SHORT).show()
+                viewModel.messages.observe(viewLifecycleOwner) {
+                    viewModel.addMessageToInbox(Message(args.nameTV, content))
+                }
+
             }
 
             builder.setNegativeButton("Nein") { _, _ ->

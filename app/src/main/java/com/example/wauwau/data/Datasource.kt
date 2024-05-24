@@ -28,4 +28,9 @@ object Datasource {
         Message("Some message3", "Text of some message23"),
         Message("Some message24", "Text of some message24"),
     )
+
+    val favorites: List<Pet> = listOf(
+        Pet("Rex", 2, R.drawable.doggo, "Some description", "m"),
+
+        )
 }

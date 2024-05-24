@@ -1,6 +1,8 @@
 package com.example.wauwau.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Telephony.Mms.Intents
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,17 +35,47 @@ class DogProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            val nameTV = binding.nameTV.text.toString()
-        viewModel.selectedPetItem.observe(viewLifecycleOwner){
+        val nameTV = binding.nameTV.text.toString()
+
+        viewModel.selectedPetItem.observe(viewLifecycleOwner) {
             binding.dogPhotoIV.setImageResource(it.picture)
             binding.dogAgeTV.text = it.age.toString()
             binding.dogGenderTV.text = it.gender
             binding.nameTV.text = it.name
             binding.dogDescriptionTV.text = it.description
+
+            val nameTV = it.name
+            binding.writeMessageBTN.setOnClickListener {
+                findNavController().navigate(
+                    DogProfileFragmentDirections.actionDogProfileFragmentToMessageFragment(
+                        nameTV
+                    )
+                )
+            }
+            binding.favAddBTN.setOnClickListener {
+                if (!viewModel.favorites.value!!.contains(viewModel.selectedPetItem.value) && !viewModel.selectedPetItem.value!!.isClicked) {
+                    viewModel.addPetToFav()
+                    binding.favAddBTN.isSelected = true
+                    viewModel.selectedPetItem.value!!.isClicked = true
+                } else if (viewModel.favorites.value!!.contains(viewModel.selectedPetItem.value) && viewModel.selectedPetItem.value!!.isClicked) {
+                    viewModel.selectedPetItem.value!!.isClicked = false
+                    viewModel.removePetFromFav()
+                    binding.favAddBTN.isSelected = false
+                }
+            }
+
+            if (viewModel.selectedPetItem.value!!.isClicked) {
+                binding.favAddBTN.isSelected = true
+            }
+
+            binding.shareProfileBTN.setOnClickListener {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                val chooser = Intent.createChooser(intent, null)
+                startActivity(chooser)
+            }
         }
 
-        binding.writeMessageBTN.setOnClickListener {
-            findNavController().navigate(DogProfileFragmentDirections.actionDogProfileFragmentToMessageFragment(nameTV))
-        }
+
     }
 }

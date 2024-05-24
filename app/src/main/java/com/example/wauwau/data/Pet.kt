@@ -5,5 +5,6 @@ data class Pet(
     val age: Int,
     val picture: Int,
     val description: String,
-    val gender: String
+    val gender: String,
+    var isClicked:Boolean = false
 )

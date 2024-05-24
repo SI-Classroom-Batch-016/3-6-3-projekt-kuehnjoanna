@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Insets.add
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -38,7 +40,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+      // setContentView(R.layout.fragment_dog_profile)
+       setContentView(binding.root)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController = navHostFragment.navController
@@ -65,12 +68,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun goToFragment(fragment: androidx.fragment.app.Fragment){
-        fragmentManager = supportFragmentManager
-        fragmentManager.beginTransaction().replace(R.id.navHostFragment, fragment).commit()
 
-
-    }
 
 
 }

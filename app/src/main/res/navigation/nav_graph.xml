@@ -48,7 +48,11 @@
         android:id="@+id/favoritesFragment2"
         android:name="com.example.wauwau.ui.FavoritesFragment"
         android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment2_to_dogProfileFragment"
+            app:destination="@id/dogProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profilFragment2"
         android:name="com.example.wauwau.ui.ProfilFragment"
