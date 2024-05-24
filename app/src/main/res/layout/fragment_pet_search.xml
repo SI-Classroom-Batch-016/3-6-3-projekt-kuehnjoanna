@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/nose"
+    android:id="@+id/petBackground"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.PetSearchFragment">
@@ -11,11 +13,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:gravity="center"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:text="OUR DOGS"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="O U R   D O G S"
         />
     <LinearLayout
         android:layout_width="wrap_content"
@@ -68,7 +70,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/petsRV"
         app:spanCount="2"
-        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/pet_item"/>

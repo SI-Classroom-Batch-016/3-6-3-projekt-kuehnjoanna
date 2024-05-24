@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/happydoggo"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.InboxFragment">
 <LinearLayout
@@ -12,16 +13,17 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="30dp"
         android:gravity="center"
-        android:textSize="40dp"
-        android:text="INBOX" />
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="I N B O X"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/inboxRV"
-        android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/message_item"/>

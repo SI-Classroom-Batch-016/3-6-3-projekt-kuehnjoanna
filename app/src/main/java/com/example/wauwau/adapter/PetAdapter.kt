@@ -26,6 +26,7 @@ class PetAdapter(
                 val data = dataset[position]
                 val binding = holder.binding
                 binding.dogNameTV.text = data.name
+                binding.dogAgeTV.text = data.age.toString()
                 binding.dogPhotoIV.setImageResource(data.picture)
                 binding.dogPhotoIV.setOnClickListener {
                         itemClickedCallback(data)

@@ -52,17 +52,17 @@ class WauWauViewModel: ViewModel() {
         }
          _pets.value = newList
     }
-    fun filterPetsAge(range: IntRange){
-        var newerList = mutableListOf<Pet>()
-        for (number in range.toList()) {
-            allPets.filter {
+    fun filterPetsAge(number: Int){
+      val newerList = allPets.filter {
                 it.age.equals(number)
-                newerList.add(it)
+
             }
             _pets.value = newerList
-        }
+
     }
     fun resetFilter(){
         _pets.value = allPets
     }
 }
+//filter age range
+//editable text

@@ -33,7 +33,6 @@ private val viewModel: WauWauViewModel by activityViewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val data = Datasource.data
-
         val itemClickedCallback: (Pet) -> Unit  = {
             viewModel.selectedPetItem(it)
 
@@ -46,6 +45,7 @@ private val viewModel: WauWauViewModel by activityViewModels()
 
             binding.maleSearch.setOnClickListener {
                 viewModel.filterPets("m")
+                binding.femaleSearch.isChecked = false
                 binding.maleSearch.setOnClickListener {
                     binding.maleSearch.isChecked = false
                     viewModel.resetFilter()
@@ -55,6 +55,7 @@ private val viewModel: WauWauViewModel by activityViewModels()
 
             binding.femaleSearch.setOnClickListener {
                 viewModel.filterPets("f")
+                binding.maleSearch.isChecked = false
                 binding.femaleSearch.setOnClickListener {
                     binding.femaleSearch.isChecked = false
                     viewModel.resetFilter()
@@ -62,14 +63,14 @@ private val viewModel: WauWauViewModel by activityViewModels()
             }
 
             binding.puppySearch.setOnClickListener {
-                viewModel.filterPetsAge(1..2)
+                viewModel.filterPetsAge(1)
                 binding.puppySearch.setOnClickListener{
                     binding.puppySearch.isChecked = false
                     viewModel.resetFilter()
                 }
             }
             binding.adultSearch.setOnClickListener {
-                viewModel.filterPetsAge(2..7)
+                viewModel.filterPetsAge(2)
                 binding.puppySearch.setOnClickListener{
                     binding.puppySearch.isChecked = false
                     viewModel.resetFilter()

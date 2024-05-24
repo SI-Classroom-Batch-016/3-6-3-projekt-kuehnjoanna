@@ -37,15 +37,21 @@ class MessageFragment : Fragment() {
 
 
         binding.nameOfTheDogTV.text = args.nameTV
-        val yourName = binding.nameET.text.toString()
-
-        val content = "Form sent:\n name of the dog: ${args.nameTV} \n Your name: ${yourName}\n Adress: ${binding.addressET.text.toString()}\n Why are you interested in this dog?: ${binding.whyET.editableText.toString()}\n Garden?: ${binding.gardenET.text}\n Children?: ${binding.childrenET.text} \n Other animals?: ${binding.otherAnimalsET.text}"
         binding.sendFormBTN.setOnClickListener {
+            val yourName = binding.nameET.text.toString()
+
+            val content =
+                "Form sent:\n name of the dog: ${args.nameTV} \n Your name: ${yourName}\n Adress: ${binding.addressET.text.toString()}\n Why are you interested in this dog?: ${binding.whyET.editableText.toString()}\n Garden?: ${binding.gardenET.text}\n Children?: ${binding.childrenET.text} \n Other animals?: ${binding.otherAnimalsET.text}"
+
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Bitte Bestätigen")
 
             builder.setPositiveButton("Ja") { _, _ ->
-                Toast.makeText(context, "Form sent, you can find it in your Inbox", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    context,
+                    "Form sent, you can find it in your Inbox",
+                    Toast.LENGTH_SHORT
+                ).show()
                 viewModel.messages.observe(viewLifecycleOwner) {
                     viewModel.addMessageToInbox(Message(args.nameTV, content))
                 }
