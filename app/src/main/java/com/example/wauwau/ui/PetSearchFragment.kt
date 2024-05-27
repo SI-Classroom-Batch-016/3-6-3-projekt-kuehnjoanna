@@ -64,15 +64,32 @@ private val viewModel: WauWauViewModel by activityViewModels()
 
             binding.puppySearch.setOnClickListener {
                 viewModel.filterPetsAge(1)
+                binding.adultSearch.isChecked = false
+                binding.seniorSearch.isChecked = false
                 binding.puppySearch.setOnClickListener{
                     binding.puppySearch.isChecked = false
                     viewModel.resetFilter()
                 }
             }
             binding.adultSearch.setOnClickListener {
-                viewModel.filterPetsAge(2)
-                binding.puppySearch.setOnClickListener{
-                    binding.puppySearch.isChecked = false
+                viewModel.filterAdultsPetsAge()
+
+                binding.puppySearch.isChecked = false
+                binding.seniorSearch.isChecked = false
+                binding.adultSearch.setOnClickListener{
+                    binding.adultSearch.setOnClickListener {
+                        viewModel.resetFilter()
+                        binding.adultSearch.isChecked = false
+                    }
+
+                }
+            }
+            binding.seniorSearch.setOnClickListener {
+               viewModel.filterSeniorPetsAge()
+                binding.puppySearch.isChecked = false
+                binding.adultSearch.isChecked = false
+                binding.seniorSearch.setOnClickListener {
+                    binding.seniorSearch.isChecked = false
                     viewModel.resetFilter()
                 }
             }

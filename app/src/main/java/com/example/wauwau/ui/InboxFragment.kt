@@ -43,7 +43,7 @@ class InboxFragment : Fragment() {
         val data = Datasource.messages
         val itemClickedCallback: (Message) -> Unit = {
             viewModel.selectedMessageItem(it)
-
+            findNavController().navigate(InboxFragmentDirections.actionInboxFragmentToMessageDetailFragment())
         }
         val adapter2 = MessageAdapter( viewModel.messages.value!!, itemClickedCallback)
         binding.inboxRV.adapter = adapter2

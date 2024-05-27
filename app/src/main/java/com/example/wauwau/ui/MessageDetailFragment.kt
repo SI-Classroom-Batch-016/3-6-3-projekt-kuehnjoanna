@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.wauwau.R
-import com.example.wauwau.databinding.FragmentProfilBinding
+import com.example.wauwau.databinding.FragmentMessageDetailBinding
 
-class ProfilFragment : Fragment() {
-    private lateinit var binding: FragmentProfilBinding
+
+class MessageDetailFragment : Fragment() {
+private lateinit var binding: FragmentMessageDetailBinding
     private val viewModel: WauWauViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,18 +25,22 @@ class ProfilFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentProfilBinding.inflate(layoutInflater)
+binding = FragmentMessageDetailBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.selectedMessageItem.observe(viewLifecycleOwner) {
+            binding.messagedetailHeadlineTV.text = it.title
+            binding.content.text = it.content
 
-
+            binding.deleteBTN.setOnClickListener {
+                viewModel.removeMessageFromInbox()
+                findNavController().navigate(R.id.inboxFragment)
+            }
 
 
     }
 
-
-
-}
+}}

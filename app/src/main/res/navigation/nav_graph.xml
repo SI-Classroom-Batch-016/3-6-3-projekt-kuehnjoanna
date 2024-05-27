@@ -62,10 +62,19 @@
         android:id="@+id/inboxFragment"
         android:name="com.example.wauwau.ui.InboxFragment"
         android:label="fragment_inbox"
-        tools:layout="@layout/fragment_inbox" />
+        tools:layout="@layout/fragment_inbox" >
+        <action
+            android:id="@+id/action_inboxFragment_to_messageDetailFragment"
+            app:destination="@id/messageDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.example.wauwau.ui.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/messageDetailFragment"
+        android:name="com.example.wauwau.ui.MessageDetailFragment"
+        android:label="fragment_message_detail"
+        tools:layout="@layout/fragment_message_detail" />
 </navigation>

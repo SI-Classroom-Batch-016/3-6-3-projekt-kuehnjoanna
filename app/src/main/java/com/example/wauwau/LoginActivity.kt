@@ -14,14 +14,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
       binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.main.alpha = 1f
-        binding.main.animate().setDuration(1500).alpha(0.5f)
+        binding.main.alpha = 0.5f
+        binding.main.animate().setDuration(1500).alpha(1f)
 
-        binding.fragmentLogin.setOnClickListener {
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
 
     }
 }
